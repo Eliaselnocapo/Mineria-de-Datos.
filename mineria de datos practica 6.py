@@ -28,6 +28,7 @@ def apriori(transactions, min_support):
         # Generamos las combinaciones de k+1 ítems
         itemsets = [a.union(b) for i, a in enumerate(valid_itemsets) 
                     for b in valid_itemsets[i+1:] if len(a.intersection(b))==k-1 and len(a.union(b)) == k+1]
+                    #En la linea de arriba agregue la iteracion de k-1.
         
         # Eliminamos si hay duplicados
         itemsets = list(map(set, set(frozenset(i) for i in itemsets)))
